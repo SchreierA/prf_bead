@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Transaction } from './model/transaction';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TransactionService {
@@ -12,6 +13,6 @@ export class TransactionService {
   }
   
   public registerTransaction(id: number, price: number): void {
-    this.http.post<Transaction>(this.transactionUrl, new Transaction(id, price));
+    this.http.post<Transaction>(this.transactionUrl, new Transaction(id, price)).subscribe(r=>{});;
   }
 }
